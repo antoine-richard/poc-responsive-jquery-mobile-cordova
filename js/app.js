@@ -23,7 +23,7 @@ Poc.Photo = {
 			function error(){ 					// Note: le nommage de la fonction ici ne sert à rien, sauf à la lisibilité
 				//TODO : appeler ici un handler d'erreur global
 			},
-			this.options
+			Poc.Photo.options
 		);
 	}
 };
@@ -31,13 +31,20 @@ Poc.Photo = {
 /**
  * Profil utilisateur
  */
-Poc.Profil = {
+Poc.Profile = {
 	takePhoto: function() {
-		Poc.Photo.takePicture(Poc.Profil.savePhoto);
+		Poc.Photo.takePicture(Poc.Profile.savePhoto);
 	},
 	savePhoto: function(imageURI) {
-		// TODO: on la sauve qq part (en plus de l'afficher) ?
-		$('#photo').attr("src", imageURI);
+		// TODO: la sauver dans les Data
+		$('.photo').attr("src", imageURI);
+	},
+	display: function(colleagueId, isSmallScreen) {
+		var colleague = Poc.Data[colleagueId];
+		$('.photo').attr('src', 'img/photo-placeholder.jpg'); // default
+		$('#colleague-profile-content .title').text(colleague.title);
+		$('#colleague-profile-content .age').text(colleague.age);
+		if (isSmallScreen) $('#colleague-name').text(colleague.name);
+		$(isSmallScreen ? '#colleague-profile-page-container' : '#colleague-profile-side-container').html($('#colleague-profile-content').html());
 	}
-
 }

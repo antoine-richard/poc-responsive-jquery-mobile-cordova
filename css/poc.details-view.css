@@ -1,22 +1,50 @@
 @media all and (min-width: 600px) {
-  #side-list {
+  .side-list {
     width: 250px;
     float: left;
     margin-top: 0;
     margin-right: 20px;
   }
-  #side-details {
+  .side-details {
     width: 300px;
     float: left;
   }
 }
 
 @media all and (max-width: 599px) {
-  #side-details {
-    display: none;
+  .side-details{
+     display: none;
   }
 }
 
 .side-cancel {
   clear: both;
+}
+
+#colleague-profile-content {
+  display: none;
+}
+
+#colleague-profile-page-container, 
+#colleague-profile-side-container {
+}
+#colleague-profile-page-container img, 
+#colleague-profile-side-container img,
+#colleague-profile-page-container div, 
+#colleague-profile-side-container div {
+  margin: 20px 0 20px 20px;
+  float: left;
+}
+
+#colleague-profile-page-container a.take-photo, 
+#colleague-profile-side-container a.take-photo {
+  display: block;
+  clear: both;
+  height: 64px;
+  background: url('../img/camera.png') no-repeat 20px 0;
+  padding-left: 102px;
+  margin: 0 20px;
+  text-decoration: none;
+  line-height: 64px;
+  border: 0;
 }
